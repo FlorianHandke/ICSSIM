@@ -5,11 +5,11 @@ RUN mkdir src
 COPY ./src/ ./src/
 
 
-RUN apt-get update
+RUN apt-get update -y
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 
-RUN apt-get update \
+RUN apt-get update -y \
 && apt-get install -y sudo \
 && apt-get install -y python3 \
 && apt-get install -y iputils-ping \
@@ -18,7 +18,7 @@ RUN apt-get update \
 && apt-get -y install nano \
 && apt --yes install python3-pip \	
 && pip install pyModbusTCP \
-&& apt install telnet \
+&& apt install telnet -y \
 && apt-get install -y memcached \
 && apt-get install -y python3-memcache \ 
 && apt-get install -y ettercap-common \
